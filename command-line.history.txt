@@ -1,0 +1,223 @@
+caubry@caubry-T400 ~/GitDemoProject $ git merge
+error: merge is not possible because you have unmerged files.
+astuce: Corrigez-les puis lancez 'git add/rm <fichier>'
+astuce: si nécessaire pour marquer la résolution et valider.
+fatal: Exiting because of an unresolved conflict.
+caubry@caubry-T400 ~/GitDemoProject $ apt install vimdiff
+[sudo] Mot de passe de caubry : 
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances       
+Lecture des informations d'état... Fait
+E: Impossible de trouver le paquet vimdiff
+caubry@caubry-T400 ~/GitDemoProject $ clear
+
+caubry@caubry-T400 ~/GitDemoProject $ git merge
+error: merge is not possible because you have unmerged files.
+astuce: Corrigez-les puis lancez 'git add/rm <fichier>'
+astuce: si nécessaire pour marquer la résolution et valider.
+fatal: Exiting because of an unresolved conflict.
+caubry@caubry-T400 ~/GitDemoProject $ git status
+Sur la branche master
+Vous avez des chemins non fusionnés.
+  (réglez les conflits puis lancez "git commit")
+
+Chemins non fusionnés :
+  (utilisez "git add <fichier>..." pour marquer comme résolu)
+
+	modifié des deux côtés :  index.html
+
+Fichiers non suivis:
+  (utilisez "git add <fichier>..." pour inclure dans ce qui sera validé)
+
+	index_BACKUP_8911.html
+	index_BASE_8911.html
+	index_LOCAL_8911.html
+	index_REMOTE_8911.html
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+caubry@caubry-T400 ~/GitDemoProject $ git add index.html
+caubry@caubry-T400 ~/GitDemoProject $ git status
+Sur la branche master
+Tous les conflits sont réglés mais la fusion n'est pas terminée.
+  (utilisez "git commit" pour terminer la fusion)
+
+Modifications qui seront validées :
+
+	modifié :         index.html
+
+Fichiers non suivis:
+  (utilisez "git add <fichier>..." pour inclure dans ce qui sera validé)
+
+	index_BACKUP_8911.html
+	index_BASE_8911.html
+	index_LOCAL_8911.html
+	index_REMOTE_8911.html
+
+caubry@caubry-T400 ~/GitDemoProject $ git commit -m "resolved merge conflict manually"
+[master c0ea6f8] resolved merge conflict manually
+caubry@caubry-T400 ~/GitDemoProject $ git status
+Sur la branche master
+Fichiers non suivis:
+  (utilisez "git add <fichier>..." pour inclure dans ce qui sera validé)
+
+	index_BACKUP_8911.html
+	index_BASE_8911.html
+	index_LOCAL_8911.html
+	index_REMOTE_8911.html
+
+aucune modification ajoutée à la validation mais des fichiers non suivis sont présents (utilisez "git add" pour les suivre)
+caubry@caubry-T400 ~/GitDemoProject $ git status
+Sur la branche master
+rien à valider, la copie de travail est propre
+caubry@caubry-T400 ~/GitDemoProject $ git remote add origin https://github.com/amicalmant/GitDemoProject.git
+caubry@caubry-T400 ~/GitDemoProject $ git status
+Sur la branche master
+rien à valider, la copie de travail est propre
+caubry@caubry-T400 ~/GitDemoProject $ git status --oneline
+error: unknown option `oneline'
+usage : git status [<options>] [--] <spécification-de-chemin>...
+
+    -v, --verbose         mode verbeux
+    -s, --short           afficher le statut avec concision
+    -b, --branch          afficher l'information de branche
+    --porcelain           sortie pour traitement automatique
+    --long                afficher le statut en format long (par défaut)
+    -z, --null            terminer les éléments par NUL
+    -u, --untracked-files[=<mode>]
+                          afficher les fichiers non suivis, "mode" facultatif : all (tous), normal, no. (Défaut : all)
+    --ignored             afficher les fichiers ignorés
+    --ignore-submodules[=<quand>]
+                          ignorer les modifications dans les sous-modules, "quand" facultatif : all (tous), dirty (sale), untracked (non suivi). (Défaut : all)
+    --column[=<style>]    afficher les fichiers non suivis en colonnes
+
+caubry@caubry-T400 ~/GitDemoProject $ git remote add origin git@github.com:amicalmant/GitDemoProject.git
+fatal: la distante origin existe déjà.
+caubry@caubry-T400 ~/GitDemoProject $ git remote set-url origin git@github.com:amicalmant/GitDemoProject.git
+caubry@caubry-T400 ~/GitDemoProject $ push -u origin master
+Le programme « push » n'est pas encore installé. Vous pouvez l'installer en tapant :
+sudo apt install heimdal-clients
+caubry@caubry-T400 ~/GitDemoProject $ git push -u origin master
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+sign_and_send_pubkey: signing failed: agent refused operation
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+caubry@caubry-T400 ~/GitDemoProject $ git push -u origin master
+Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+sign_and_send_pubkey: signing failed: agent refused operation
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+caubry@caubry-T400 ~/GitDemoProject $ git push -u origin master
+Décompte des objets: 20, fait.
+Delta compression using up to 2 threads.
+Compression des objets: 100% (17/17), fait.
+Écriture des objets: 100% (20/20), 1.82 KiB | 0 bytes/s, fait.
+Total 20 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), done.
+To git@github.com:amicalmant/GitDemoProject.git
+ * [new branch]      master -> master
+La branche master est paramétrée pour suivre la branche distante master depuis origin.
+caubry@caubry-T400 ~/GitDemoProject $ git add .
+caubry@caubry-T400 ~/GitDemoProject $ git remote add origin https://github.com/amicalmant/GitDemoProject.git^C
+caubry@caubry-T400 ~/GitDemoProject $ git commit -m "final notes restored" 
+[master 51423d4] final notes restored
+ 1 file changed, 6 insertions(+)
+caubry@caubry-T400 ~/GitDemoProject $ git status --oneline
+error: unknown option `oneline'
+usage : git status [<options>] [--] <spécification-de-chemin>...
+
+    -v, --verbose         mode verbeux
+    -s, --short           afficher le statut avec concision
+    -b, --branch          afficher l'information de branche
+    --porcelain           sortie pour traitement automatique
+    --long                afficher le statut en format long (par défaut)
+    -z, --null            terminer les éléments par NUL
+    -u, --untracked-files[=<mode>]
+                          afficher les fichiers non suivis, "mode" facultatif : all (tous), normal, no. (Défaut : all)
+    --ignored             afficher les fichiers ignorés
+    --ignore-submodules[=<quand>]
+                          ignorer les modifications dans les sous-modules, "quand" facultatif : all (tous), dirty (sale), untracked (non suivi). (Défaut : all)
+    --column[=<style>]    afficher les fichiers non suivis en colonnes
+
+caubry@caubry-T400 ~/GitDemoProject $ git log --oneline
+51423d4 final notes restored
+c0ea6f8 resolved merge conflict manually
+9acb3b2 added title to newbranch
+89ab74f added title to secondnewbranch
+97ee791 Newbranch: added basic syntax
+ac57cd4 changed index
+c4ceebe added notes
+0c9b5ab initial commit. added index file.
+caubry@caubry-T400 ~/GitDemoProject $ push -u origin master
+Le programme « push » n'est pas encore installé. Vous pouvez l'installer en tapant :
+sudo apt install heimdal-clients
+caubry@caubry-T400 ~/GitDemoProject $ git push -u origin master
+Décompte des objets: 3, fait.
+Delta compression using up to 2 threads.
+Compression des objets: 100% (3/3), fait.
+Écriture des objets: 100% (3/3), 371 bytes | 0 bytes/s, fait.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To git@github.com:amicalmant/GitDemoProject.git
+   c0ea6f8..51423d4  master -> master
+La branche master est paramétrée pour suivre la branche distante master depuis origin.
+caubry@caubry-T400 ~/GitDemoProject $ git pull
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Dépaquetage des objets: 100% (3/3), fait.
+Depuis github.com:amicalmant/GitDemoProject
+   51423d4..6d3ad9f  master     -> origin/master
+Mise à jour 51423d4..6d3ad9f
+Fast-forward
+ notes | 1 +
+ 1 file changed, 1 insertion(+)
+caubry@caubry-T400 ~/GitDemoProject $ xed notes
+caubry@caubry-T400 ~/GitDemoProject $ git push
+warning: push.default n'est pas défini ; sa valeur implicite a changé dans Git 2.0
+de 'matching' vers 'simple'. Pour supprimer ce message et maintenir
+le comportement actuel après la modification de la valeur de défaut, utilisez :
+
+  git config --global push.default matching
+
+Pour supprimer ce message et adopter le nouveau comportement maintenant, utilisez :
+
+  git config --global push.default simple
+
+Quand push.default vaudra 'matching', git poussera les branches locales
+sur les branches distantes qui existent déjà avec le même nom.
+
+Depuis Git 2.0, Git utilise par défaut le comportement plus conservatif 'simple'
+qui ne pousse la branche courante que vers la branche distante correspondante
+que 'git pull' utilise pour mettre à jour la branche courante.
+ 
+Voir 'git help config' et chercher 'push.default' pour plus d'information.
+(le mode 'simple' a été introduit dans Git 1.7.11. Utilisez le mode similaire
+'current' au lieu de 'simple' si vous utilisez de temps en temps d'anciennes versions de Git)
+
+Everything up-to-date
+caubry@caubry-T400 ~/GitDemoProject $ git push origin master
+Everything up-to-date
+caubry@caubry-T400 ~/GitDemoProject $ git pull --help
+caubry@caubry-T400 ~/GitDemoProject $ git pull
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (3/3), done.
+Dépaquetage des objets: 100% (3/3), fait.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Depuis github.com:amicalmant/GitDemoProject
+   6d3ad9f..1de731b  master     -> origin/master
+Mise à jour 6d3ad9f..1de731b
+Fast-forward
+ notes | 3 +++
+ 1 file changed, 3 insertions(+)
+caubry@caubry-T400 ~/GitDemoProject $ xed notes
+caubry@caubry-T400 ~/GitDemoProject $ 
+
