@@ -14,3 +14,4 @@ git commit -m "message"
 git log --oneline
 git diff
 
+See the rest here: https://goo.gl/oS4ZbG
